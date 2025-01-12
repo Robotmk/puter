@@ -1,0 +1,33 @@
+{
+    "config_name": "generated default config",
+    "env": "dev",
+    "nginx_mode": true,
+    "server_id": "api.puter.domain.com",
+    "http_port": "auto",
+    "pub_port": "443",
+    "domain": "puter.domain.com",
+    "experimental_no_subdomain": true,
+    "protocol": "https",
+    "contact_email": "hey@example.com",
+    "services": {
+        "database": {
+            "engine": "sqlite",
+            "path": "puter-database.sqlite"
+        },
+        "thumbnails": {
+            "engine": "purejs"
+        },
+        "file-cache": {
+            "disk_limit": 16384,
+            "disk_max_size": 16384,
+            "precache_size": 16384,
+            "path": "./file-cache"
+        }
+    },
+    "cookie_name": "COOKIE",
+    "jwt_secret": "SECRET",
+    "url_signature_secret": "SECRET",
+    "private_uid_secret": "SECRET",
+    "private_uid_namespace": "SECRET",
+    "": null
+}

@@ -60,6 +60,8 @@ COPY --from=build /app/src/gui/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
 COPY . .
 
+COPY config.json /etc/config.json
+
 # Set permissions
 RUN chown -R node:node /opt/puter/app
 USER node
