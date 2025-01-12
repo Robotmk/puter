@@ -286,6 +286,8 @@ class RuntimeEnvironment extends AdvancedBase {
             config_to_load = `${process.env.PUTER_CONFIG_PROFILE}.json`
             this.logger.info(`RMK: config_to_load: ${config_to_load}`);
             this.logger.info(`RMK: config_path_entry.path: ${config_path_entry.path}`);
+            this.logger.info(`RMK: path_: ${path_}`);
+            this.logger.info(`RMK: path_.join(config_path_entry.path, config_to_load): ${path_.join(config_path_entry.path, config_to_load)}`);
             const exists = fs.existsSync(
                 path_.join(config_path_entry.path, config_to_load)
             );
