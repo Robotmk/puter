@@ -60,6 +60,7 @@ COPY --from=build /app/src/gui/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
 COPY . .
 
+# RMK
 COPY config.json /rmk_puter_config.json
 
 # Set permissions
