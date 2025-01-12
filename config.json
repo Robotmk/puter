@@ -10,6 +10,10 @@
     "protocol": "https",
     "contact_email": "hey@example.com",
     "services": {
+        "database": {
+            "engine": "sqlite",
+            "path": "puter-database.sqlite"
+        },        
         "thumbnails": {
             "engine": "purejs"
         },
