@@ -308,9 +308,9 @@ class RuntimeEnvironment extends AdvancedBase {
             throw new Error('config_name is required');
         }
         this.logger.info(hl(`config name`) + ` ${quot(config.config_name)}`);
-        console.log("RMK:" + config.services);
-        console.log("RMK:" + Object.keys(config.services));
-        console.log("RMK:" + { ...config.services });
+        // console.log("RMK:" + config.services);
+        // console.log("RMK:" + Object.keys(config.services));
+        // console.log("RMK:" + { ...config.services });
 
         const mod_paths = [];
         environment.mod_paths = mod_paths;
