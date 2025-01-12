@@ -52,6 +52,8 @@ class ConfigLoader extends AdvancedBase {
             (meta.by ? ` (required by ${meta.by})` : '')
         );
         this.config.load_config(config_values);
+        this.logger.info("Loaded config:");
+        this.logger.info(config_values);
 
     }
 
