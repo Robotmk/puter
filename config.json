@@ -1,5 +1,5 @@
 {
-    "config_name": "generated default config",
+    "config_name": "Robotmk puter config",
     "env": "dev",
     "nginx_mode": true,
     "server_id": "api.puter.robotmk.org",

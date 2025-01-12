@@ -36,7 +36,7 @@ class ConfigLoader extends AdvancedBase {
         const { path_, fs } = this.modules;
 
         const config_path = path_.join(this.path, name);
-
+        this.logger.info(`RMK config path: ${config_path}`);
         if ( ! fs.existsSync(config_path) ) {
             throw new Error(`Config file not found: ${config_path}`);
         }
@@ -59,7 +59,7 @@ class ConfigLoader extends AdvancedBase {
 
     apply_requires (dir, config_list, { by } = {}) {
         const { path_, fs } = this.modules;
-
+        this.logger.info(`Applying requires from ${quot(by)}: ${config_list}`);
         for ( const name of config_list ) {
             const config_path = path_.join(dir, name);
             if ( ! fs.existsSync(config_path) ) {

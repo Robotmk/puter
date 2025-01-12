@@ -248,6 +248,7 @@ class RuntimeEnvironment extends AdvancedBase {
 
         // Check for a valid config file in the config path
         let using_config;
+        this.logger.info(`RMK: valid_config_names: ${valid_config_names}`);
         for ( const name of valid_config_names ) {
             const exists = this.modules.fs.existsSync(
                 this.modules.path_.join(config_path_entry.path, name)
@@ -261,6 +262,7 @@ class RuntimeEnvironment extends AdvancedBase {
         const { fs, path_, crypto } = this.modules;
         let config_values = {};
         if ( !using_config ) {
+            this.logger.info(`RMK: using generated default config`);
             const generated_config = {
                 ...default_config,
             };
@@ -304,9 +306,9 @@ class RuntimeEnvironment extends AdvancedBase {
             throw new Error('config_name is required');
         }
         this.logger.info(hl(`config name`) + ` ${quot(config.config_name)}`);
-        // console.log(config.services);
-        // console.log(Object.keys(config.services));
-        // console.log({ ...config.services });
+        console.log("RMK:" + config.services);
+        console.log("RMK:" + Object.keys(config.services));
+        console.log("RMK:" + { ...config.services });
 
         const mod_paths = [];
         environment.mod_paths = mod_paths;
