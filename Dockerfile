@@ -61,7 +61,7 @@ COPY --from=build /app/node_modules ./node_modules
 COPY . .
 
 # RMK
-COPY config.json /rmk_puter_config.json
+COPY config.json /rmk_puter_config
 
 # Set permissions
 RUN chown -R node:node /opt/puter/app

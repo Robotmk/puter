@@ -248,7 +248,6 @@ class RuntimeEnvironment extends AdvancedBase {
 
         // Check for a valid config file in the config path
         let using_config;
-        this.logger.info(`RMK: valid_config_names: ${valid_config_names}`);
         for ( const name of valid_config_names ) {
             const exists = this.modules.fs.existsSync(
                 this.modules.path_.join(config_path_entry.path, name)
@@ -262,7 +261,7 @@ class RuntimeEnvironment extends AdvancedBase {
         const { fs, path_, crypto } = this.modules;
         let config_values = {};
         if ( !using_config ) {
-            this.logger.info(`RMK: using generated default config`);
+            // this.logger.info(`RMK: using generated default config`);
             const generated_config = {
                 ...default_config,
             };
@@ -285,10 +284,13 @@ class RuntimeEnvironment extends AdvancedBase {
                 `because $PUTER_CONFIG_PROFILE is set`
             );
             config_to_load = `${process.env.PUTER_CONFIG_PROFILE}.json`
+            this.logger.info(`RMK: config_to_load: ${config_to_load}`);
+            this.logger.info(`RMK: config_path_entry.path: ${config_path_entry.path}`);
             const exists = fs.existsSync(
                 path_.join(config_path_entry.path, config_to_load)
             );
             if ( ! exists ) {
+                this.logger.info(`RMK: exists: ${exists}`);
                 fs.writeFileSync(
                     path_.join(config_path_entry.path, config_to_load),
                     JSON.stringify({
@@ -296,7 +298,7 @@ class RuntimeEnvironment extends AdvancedBase {
                         $imports: ['config.json'],
                     }, null, 4) + '\n',
                 );
-            }
+            }  
         }
 
         const loader = new ConfigLoader(this.logger, config_path_entry.path, config);
